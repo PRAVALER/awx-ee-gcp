@@ -1,4 +1,4 @@
-# Ansible AWX Execution Environment with AWS, Azure, GCP, Kubernetes, Helm, Java and Terraform
+# Ansible AWX Execution Environment with GCP, Kubernetes and Helm 
 
 ## Table of contents
 
@@ -22,14 +22,9 @@ It is based on the official Ansible AWX EE image and mainly includes:
 
 * Cloud provider dependencies:
 
-    * Amazon Web Services (AWS)
     * Google Cloud Platform (GCP)
-    * Microsoft Azure
 
-* Java 21
 * Kubernetes & Helm
-* PostgreSQL 17
-* Terraform 1.12.1
 
 <a name="versioning"></a>
 
@@ -50,7 +45,7 @@ This image can be set up in AWX by:
 2. Adding a new Execution Environment with the following details:
 
     * Name: `Custom AWX Execution Environment`
-    * Image: `docker.io/ppodgorsek/ansible-awx-ee:latest`
+    * Image: `docker.io/PRAVALER/awx-ee-gcp:latest`
     * Pull policy: `Only pull if not present before running`
 
 3. Applying the execution environment on the relevant job templates.
@@ -75,15 +70,9 @@ Depending on your needs, the following collections are supported and can be adde
 
 * Cloud providers:
 
-    * [AWS](https://galaxy.ansible.com/amazon/aws): `amazon.aws`
-    * [Azure](https://galaxy.ansible.com/azure/azcollection): `azure.azcollection`
     * [GCP](https://galaxy.ansible.com/google/cloud): `google.cloud`
-
-* [Cryptography](https://galaxy.ansible.com/community/crypto): `community.crypto`
 * [General](https://galaxy.ansible.com/community/general): `community.general`
 * [Kubernetes](https://galaxy.ansible.com/kubernetes/core): `kubernetes.core`
-* [PostgreSQL](https://galaxy.ansible.com/community/postgresql): `community.postgresql`
-* [Terraform](https://galaxy.ansible.com/community/general): `community.general`
 
 <a name="troubleshooting"></a>
 
@@ -96,9 +85,3 @@ Depending on your needs, the following collections are supported and can be adde
 Upon running a job, errors might appear which seem to be pointing to missing dependencies.
 
 This is a common misconfiguration, remember to make sure your job templates are using the correct execution environment.
-
-<a name="please-contribute"></a>
-
-## Please contribute!
-
-Have you found an issue? Do you have an idea for an improvement? Feel free to contribute by submitting it [on the GitHub project](https://github.com/ppodgorsek/ansible-awx-ee/issues).
